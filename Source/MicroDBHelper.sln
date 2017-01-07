@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroDBHelper", "MicroDBHelper\MicroDBHelper.csproj", "{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		en|Any CPU = en|Any CPU
+		zh|Any CPU = zh|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.en|Any CPU.ActiveCfg = en|Any CPU
+		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.en|Any CPU.Build.0 = en|Any CPU
+		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.zh|Any CPU.ActiveCfg = zh|Any CPU
+		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.zh|Any CPU.Build.0 = zh|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
