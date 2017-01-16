@@ -4,7 +4,7 @@ A friendly interface library to use SQLHelper.
 
 * [main] friendly interface design for developers;
 * support for asynchronous programming (async/await) ;
-* lightweight. it's about 60kb size of build output dll. 
+* lightweight. it's about 60kb size of compiled dll. 
 
 Currently it is focus MsSql databases (not support MySql at this moment).  
 The MsSqlHepler.cs sourcecode was taken from the Microsoft .NET Data Access Application Block v2.0 and improved to support the latest .net Frameworks and asynchronous programming.
@@ -54,7 +54,7 @@ The library offer different overloaded methods for these.
 As you see, you need to call `MicroDBHelper.UseTransaction` to get the transaction object, and write your code inside `using` block. Please note, Call the `MarkSuccess()` method at last. 
 When the context leave the using block, the transaction will decide to run COMMIT or ROLLBACK automatically:
 * when everything is okay and the MarkSuccess() is successfully called, it will commit the result;
-* when some exceptions was thrown In this process, it will safely rollback, you can write your try-catch outside the using block, even outside of invoker and don's need to worry about the ROLLBACK and CLOSE of the transaction.
+* when some exceptions was thrown In this process, it will safely rollback, you can write your try-catch outside the using block, even outside of invoker and don't need to worry about the ROLLBACK and CLOSE of the transaction.
 
 
 Additionally, the MicroDBTransaction in addition to maintaining the operation of atomic, it can also be used to share the connection. For example, you want to read two table in the same time and want't to connecte to DB twice, then you can use MicroDBTransaction to get result in one connection:
