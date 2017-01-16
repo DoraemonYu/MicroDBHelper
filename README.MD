@@ -103,6 +103,12 @@ If you needn't to got the code and bulid by yourself for the moment, I also offe
 [Build Directory](https://github.com/DoraemonYu/MicroDBHelper/tree/master/Build)
 
 
+## NuGet
+Choose your expected language package : 
+* English: `Install-Package MicroDBHelper`  [link](https://www.nuget.org/packages/MicroDBHelper/)
+* Simplified Chinese: `Install-Package MicroDBHelper.zh-Hans`  [link](https://www.nuget.org/packages/MicroDBHelper.zh-Hans/)
+
+
 ## LICENSE
 This library is open-source and non-restrictive for personal or businesses. 
 
