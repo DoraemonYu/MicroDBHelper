@@ -2,11 +2,11 @@ MicroDBHelper
 ==========================================
 A friendly interface library to use SQLHelper. 
 
-* [main] friendly interface design for developers;
-* support for asynchronous programming (async/await) ;
+* [main] **friendly interface design** for developers;
+* support for **asynchronous programming** (async/await) ;
 * lightweight. it's about 60kb size of compiled dll. 
 
-Currently it is focus MsSql databases (not support MySql at this moment).  
+Currently it is focus on **MsSql** databases (not support MySql at this moment).  
 
 The MsSqlHepler.cs sourcecode was taken from the Microsoft .NET Data Access Application Block v2.0 and improved to support the latest .net Frameworks and asynchronous programming.
 
@@ -16,6 +16,7 @@ The MsSqlHepler.cs sourcecode was taken from the Microsoft .NET Data Access Appl
 
 
 ## Usage
+
 ### Initialization
 Firstly, set the connection string once, when your assembly is initing.  
 
@@ -78,12 +79,13 @@ Use the low level of Isolation,pass some one MicroDBTransaction Object and with 
 
 BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's important to choose when you design your High-performance data access layer.
 
-There are some selection basis:
 
-* read uncommitted - When transaction A updates a piece of data, it does not allow other transactions to update the data, but it can read;
-* read committed - When transaction A updates a piece of data, no other transaction is allowed to do anything, including read, but when transaction A reads, other transactions can read and update;
-* repeatable read - When the transaction A update data, do not allow other transactions to do anything, but when the transaction A to read, other transactions can only read, can not be updated;
-* serializable - The most strict isolation level, the transaction must be carried out in turn;
+There are some **selection basis**:
+
+* **read uncommitted** - When transaction A updates a piece of data, it does not allow other transactions to update the data, but it can read;
+* **read committed** - When transaction A updates a piece of data, no other transaction is allowed to do anything, including read, but when transaction A reads, other transactions can read and update;
+* **repeatable read** - When the transaction A update data, do not allow other transactions to do anything, but when the transaction A to read, other transactions can only read, can not be updated;
+* **serializable** - The most strict isolation level, the transaction must be carried out in turn;
 
 
 
