@@ -7,6 +7,7 @@ A friendly interface library to use SQLHelper.
 * lightweight. it's about 60kb size of compiled dll. 
 
 Currently it is focus MsSql databases (not support MySql at this moment).  
+
 The MsSqlHepler.cs sourcecode was taken from the Microsoft .NET Data Access Application Block v2.0 and improved to support the latest .net Frameworks and asynchronous programming.
 
 
@@ -32,20 +33,19 @@ Then the subsequent operations, the library will use the specified connection st
 
 
 ### Query Data
-* `MicroDBHelper.ExecuteDataTable` and `MicroDBHelper.ExecuteDataTableAsync`. The former is synchronization operation and the the latter is asynchronous operation. 
-The result is a DataTable.
+* `MicroDBHelper.ExecuteDataTable` and `MicroDBHelper.ExecuteDataTableAsync`. The former is synchronization operation and the the latter is asynchronous operation. The result is a DataTable.
 * `MicroDBHelper.ExecuteScalar` and `MicroDBHelper.ExecuteScalarAsync` will return one Object.
 
 The library offer different overloaded methods for developer to easy pass parameters.Like CommandType(text / storedProcedure), use transaction or not, and so on.
 
 
 ### Execute
-* `MicroDBHelper.ExecuteNonQuery` and `MicroDBHelper.ExecuteNonQueryAsync` , execute sql and return the affected rows.
+* `MicroDBHelper.ExecuteNonQuery` and `MicroDBHelper.ExecuteNonQueryAsync`, execute sql and return the affected rows.
+
 The library offer different overloaded methods for these.
 
 
 ### Transaction 
-
 ```
       using (var tran = MicroDBHelper.UseTransaction(!IsolationLevel!)) 
       {
@@ -56,7 +56,9 @@ The library offer different overloaded methods for these.
 ```  
 
 As you see, you need to call `MicroDBHelper.UseTransaction` to get the transaction object, and write your code inside `using` block. Please note, Call the `MarkSuccess()` method at last. 
+
 When the context leave the using block, the transaction will decide to run COMMIT or ROLLBACK automatically:
+
 * when everything is okay and the MarkSuccess() is successfully called, it will commit the result;
 * when some exceptions was thrown In this process, it will safely rollback, you can write your try-catch outside the using block, even outside of invoker and don't need to worry about the ROLLBACK and CLOSE of the transaction.
 
@@ -75,7 +77,9 @@ Use the low level of Isolation,pass some one MicroDBTransaction Object and with 
 
 
 BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's important to choose when you design your High-performance data access layer.
+
 There are some selection basis:
+
 * read uncommitted - When transaction A updates a piece of data, it does not allow other transactions to update the data, but it can read;
 * read committed - When transaction A updates a piece of data, no other transaction is allowed to do anything, including read, but when transaction A reads, other transactions can read and update;
 * repeatable read - When the transaction A update data, do not allow other transactions to do anything, but when the transaction A to read, other transactions can only read, can not be updated;
@@ -113,6 +117,7 @@ If you needn't to got the code and bulid by yourself for the moment, I also offe
 
 ## NuGet
 Choose your expected language package : 
+
 * English: `Install-Package MicroDBHelper`  [link](https://www.nuget.org/packages/MicroDBHelper/)
 * Simplified Chinese: `Install-Package MicroDBHelper.zh-Hans`  [link](https://www.nuget.org/packages/MicroDBHelper.zh-Hans/)
 
