@@ -17,6 +17,7 @@ The MsSqlHepler.cs sourcecode was taken from the Microsoft .NET Data Access Appl
 ## Usage
 ### Initialization
 Firstly, set the connection string once, when your assembly is initing.  
+
 ``` 
 var dbConnection = string.Format("Data Source={0};uid={1};password={2};database={3}", 
                                   DB_IP, 
@@ -24,6 +25,7 @@ var dbConnection = string.Format("Data Source={0};uid={1};password={2};database=
                                   DB_DATABASE);
 MicroDBHelper.SetConnection(dbConnection);
 ```  
+
 Then the subsequent operations, the library will use the specified connection string for other interfaces.  
 
 (Need to support multiple connection ? Okay,the library support it as well. Search by keywords of "multiple connection support" in this document, then you can get it o(∩_∩)o  ) 
@@ -34,7 +36,7 @@ Then the subsequent operations, the library will use the specified connection st
 The result is a DataTable.
 * `MicroDBHelper.ExecuteScalar` and `MicroDBHelper.ExecuteScalarAsync` will return one Object.
 
-The library offer different overloaded methods for developer to easy pass parameters.Like CommandType(text | storedProcedure), use transaction or not, and so on.
+The library offer different overloaded methods for developer to easy pass parameters.Like CommandType(text / storedProcedure), use transaction or not, and so on.
 
 
 ### Execute
@@ -43,6 +45,7 @@ The library offer different overloaded methods for these.
 
 
 ### Transaction 
+
 ```
       using (var tran = MicroDBHelper.UseTransaction(!IsolationLevel!)) 
       {
@@ -51,6 +54,7 @@ The library offer different overloaded methods for these.
          tran.MarkSuccess();
       }
 ```  
+
 As you see, you need to call `MicroDBHelper.UseTransaction` to get the transaction object, and write your code inside `using` block. Please note, Call the `MarkSuccess()` method at last. 
 When the context leave the using block, the transaction will decide to run COMMIT or ROLLBACK automatically:
 * when everything is okay and the MarkSuccess() is successfully called, it will commit the result;
@@ -58,6 +62,7 @@ When the context leave the using block, the transaction will decide to run COMMI
 
 
 Additionally, the MicroDBTransaction in addition to maintaining the operation of atomic, it can also be used to share the connection. For example, you want to read two table in the same time and want't to connecte to DB twice, then you can use MicroDBTransaction to get result in one connection:  
+
 ```
       using (var tran = MicroDBHelper.UseTransaction(IsolationLevel.ReadUncommitted)) 
       {
@@ -65,6 +70,7 @@ Additionally, the MicroDBTransaction in addition to maintaining the operation of
          var retB = MicroDBHelper.ExecuteDataTable(sql_SELECT_A, paramValues, tran);
       }
 ```  
+
 Use the low level of Isolation,pass some one MicroDBTransaction Object and with no need for call MarkSuccess. 
 
 
@@ -79,6 +85,7 @@ There are some selection basis:
 
 ### Multiple Connection Support
 In a specific application scenario, if you need to use multiple different databases, you can set multiple Connection String with the Alias Name. All the interface is offer the overloaded methods to use Alias Name. For example:  
+
 ```
       MicroDBHelper.SetConnection(Connection1, "DB-Common");
       MicroDBHelper.SetConnection(Connection2, "DB-Private");
@@ -88,6 +95,7 @@ In a specific application scenario, if you need to use multiple different databa
           MicroDBHelper.ExecuteDataTable("select * from User", null, "DB-Common");
       }
 ```  
+
 BTW, it is advise the use CONST STRING to keep and use your Alias Name more easy use and maintainable. o(∩_∩)o
 
 
