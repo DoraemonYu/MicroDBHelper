@@ -74,7 +74,7 @@ Additionally, the MicroDBTransaction in addition to maintaining the operation of
       }
 ```  
 
-Use the low level of Isolation,pass some one MicroDBTransaction Object and with no need for call MarkSuccess. 
+Use the low level of Isolation,pass same MicroDBTransaction Object and with no need for call MarkSuccess. 
 
 
 BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's important to choose when you design your High-performance data access layer.
