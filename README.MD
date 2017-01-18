@@ -8,7 +8,7 @@ A friendly interface library to use SQLHelper.
 
 Currently it is focus on **MsSql** databases (not support MySql at this moment).  
 
-The MsSqlHepler.cs sourcecode was taken from the Microsoft .NET Data Access Application Block v2.0 and improved to support the latest .net Frameworks and asynchronous programming.
+The MsSqlHepler.cs sourcecode was taken from the **Microsoft .NET Data Access Application Block v2.0** and **improved to** support the latest .net Frameworks and asynchronous programming.
 
 
 ## Environmental Requirement
@@ -74,10 +74,10 @@ Additionally, the MicroDBTransaction in addition to maintaining the operation of
       }
 ```  
 
-Use the low level of Isolation,pass same MicroDBTransaction Object and with no need for call MarkSuccess. 
+Use the low level of Isolation,pass same MicroDBTransaction Object and with no need for call MarkSuccess(). 
 
 
-BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's important to choose when you design your High-performance data access layer.
+BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.
 
 
 There are some **selection basis**:
@@ -128,4 +128,4 @@ Choose your expected language package :
 This library is open-source and non-restrictive for personal or businesses. 
 
 However, I choose LGPL not MIT, in order to make this library grow up.   
-If you really have idea or requirement to modify the source code to let the interface more and more friendly, I am willing to see it! I am happy to recive your pull request or you can fork a new repository, instead of Closed source. Just share your bright ideas to developer include me o(∩_∩)o 
+If you really have idea or requirement to modify the source code to let the interface more and more friendly, I am willing to see it! I am happy to recive your pull request or you can fork a new repository, instead of Closed source. Just share your bright ideas to developers include me o(∩_∩)o 
