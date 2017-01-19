@@ -4,36 +4,36 @@
         <name>MicroDBHelper</name>
     </assembly>
     <members>
-        <member name="T:MicroDBHelper.MicroDBHelper">
+        <member name="T:MicroDBHelpers.MicroDBHelper">
             <summary>
             Friendly and micro DBHelper (V3, with support of "Async SQL" and "Multiple DB connection" ) 
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBHelper.ALIAS_NAME_DEFAULT">
+        <member name="F:MicroDBHelpers.MicroDBHelper.ALIAS_NAME_DEFAULT">
             <summary>
             Default alias Name for use
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBHelper.connectionStrings">
+        <member name="F:MicroDBHelpers.MicroDBHelper.connectionStrings">
             <summary>
             Connection Dictionary( alias name , connection strings )
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.SetConnection(System.String,System.String)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.SetConnection(System.String,System.String)">
             <summary>
             Set the connection string
             </summary>
             <param name="m_connectionString">connection string</param>
             <param name="m_ConnectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.GetConnection(System.String)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.GetConnection(System.String)">
             <summary>
             获取连接字符串
             </summary>
             <param name="m_ConnectionAliasName"></param>
             <returns>连接别名；如果没起别名，则使用默认的连接字符串</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             Query，Get result of DataTable
             </summary>
@@ -43,7 +43,7 @@
             <param name="commandType">Text | StoredProcedure</param>
             <returns>DataTable</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             Query，Get result of DataTable
             </summary>
@@ -53,7 +53,7 @@
             <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
             <returns>DataTable</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             async Query，Get result of DataTable
             </summary>
@@ -63,7 +63,7 @@
             <param name="commandType">Text | StoredProcedure</param>
             <returns>DataTable</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             async Query，Get result of DataTable
             </summary>
@@ -73,7 +73,7 @@
             <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
             <returns>DataTable</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             Query，Get result of One Object
             </summary>
@@ -83,7 +83,7 @@
             <param name="commandType">Text | StoredProcedure</param>
             <returns>Object</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             Query，Get result of One Object
             </summary>
@@ -93,7 +93,7 @@
             <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
             <returns>Object</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             async Query，Get result of One Object
             </summary>
@@ -103,7 +103,7 @@
             <param name="commandType">Text | StoredProcedure</param>
             <returns>Object</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             async Query，Get result of One Object
             </summary>
@@ -113,7 +113,7 @@
             <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
             <returns>Object</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             ExecuteNonQuery
             </summary>
@@ -123,7 +123,7 @@
             <param name="commandType">Text | StoredProcedure</param>
             <returns>the affected rows</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             ExecuteNonQuery
             </summary>
@@ -133,7 +133,7 @@
             <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
             <returns>the affected rows</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             async ExecuteNonQuery
             </summary>
@@ -143,7 +143,7 @@
             <param name="commandType">Text | StoredProcedure</param>
             <returns>the affected rows</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             async ExecuteNonQuery
             </summary>
@@ -153,7 +153,7 @@
             <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
             <returns>the affected rows</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.UseTransaction(System.Data.IsolationLevel,System.String)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.UseTransaction(System.Data.IsolationLevel,System.String)">
             <summary>
             Get new MicroDBTransaction Object with the Transaction support<para />
             ( when transaction is success，call MarkSuccess() method at last，then the transaction will automatically COMMIT; when some exception is happend then case the code NOT to call MarkSuccess() method,  the transaction will automatically Rollback )
@@ -161,100 +161,100 @@
             <param name="IsolationLevel">Level of Isolation</param>
             <param name="ConnectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
         </member>
-        <member name="T:MicroDBHelper.MicroDBTransaction">
+        <member name="T:MicroDBHelpers.MicroDBTransaction">
             <summary>
             Offer firendly support of Transaction for the MicroDBHelper
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.IsTranEnded">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.IsTranEnded">
             <summary>
             标记事务是否结束
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.IsSuccess">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.IsSuccess">
             <summary>
             标记执行是否顺利
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.connection">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.connection">
             <summary>
             数据库连接对象
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.tran">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.tran">
             <summary>
             事务对象
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.#ctor(System.Data.IsolationLevel,System.String)">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.#ctor(System.Data.IsolationLevel,System.String)">
             <summary>
             Default ctor
             </summary>
             <param name="isolationLevel">the Alias Name of Connection</param>
             <param name="connectionAliasName">the Alias Name of Connection</param>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.Dispose">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.Dispose">
             <summary>
             Dispose resources
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.DisposeManagedResource">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.DisposeManagedResource">
             <summary>
             释放托管资源
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.Finalize">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.Finalize">
             <summary>
             析构
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.MakeReady">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.MakeReady">
             <summary>
             使其就绪
             </summary>
             <returns>就绪与否</returns>        
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.ConnectionAndCreateTran">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.ConnectionAndCreateTran">
             <summary>
             连接数据库并创建事务
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.EndTransaction">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.EndTransaction">
             <summary>
             结束事务
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.MarkSuccess">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.MarkSuccess">
             <summary>
             Mark this Transaction is Success ( before this MicroDBTransaction END,it will commit; otherwise, it wll rollback  )
             </summary>
         </member>
-        <member name="P:MicroDBHelper.MicroDBTransaction.IsolationLevel">
+        <member name="P:MicroDBHelpers.MicroDBTransaction.IsolationLevel">
             <summary>
             Level of Isolation (read only)
             </summary>
         </member>
-        <member name="P:MicroDBHelper.MicroDBTransaction.ConnectionAliasName">
+        <member name="P:MicroDBHelpers.MicroDBTransaction.ConnectionAliasName">
             <summary>
             the Alias Name of Connection (read only)
             </summary>
         </member>
-        <member name="P:MicroDBHelper.MicroDBTransaction.IsDisposed">
+        <member name="P:MicroDBHelpers.MicroDBTransaction.IsDisposed">
             <summary>
             mark as is it disposed now
             </summary>
         </member>
-        <member name="T:MicroDBHelper.MicroDBTransaction.TransactionPurpose">
+        <member name="T:MicroDBHelpers.MicroDBTransaction.TransactionPurpose">
             <summary>
             事务用途
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.TransactionPurpose.ReadOnly">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.TransactionPurpose.ReadOnly">
             <summary>
             只读
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.TransactionPurpose.ReadWrite">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.TransactionPurpose.ReadWrite">
             <summary>
             读和写
             </summary>

@@ -4,36 +4,36 @@
         <name>MicroDBHelper</name>
     </assembly>
     <members>
-        <member name="T:MicroDBHelper.MicroDBHelper">
+        <member name="T:MicroDBHelpers.MicroDBHelper">
             <summary>
             微型数据库帮助类(V3，支持异步SQL + 允许多数据库连接)
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBHelper.ALIAS_NAME_DEFAULT">
+        <member name="F:MicroDBHelpers.MicroDBHelper.ALIAS_NAME_DEFAULT">
             <summary>
             默认的别名
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBHelper.connectionStrings">
+        <member name="F:MicroDBHelpers.MicroDBHelper.connectionStrings">
             <summary>
             连接字符串词典(别名,连接字符串)
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.SetConnection(System.String,System.String)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.SetConnection(System.String,System.String)">
             <summary>
             设置连接字符串
             </summary>
             <param name="m_connectionString">连接字符串</param>
             <param name="m_ConnectionAliasName">连接别名；如果没起别名，默认为DEFAULT，会以此作为默认的连接字符串</param>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.GetConnection(System.String)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.GetConnection(System.String)">
             <summary>
             获取连接字符串
             </summary>
             <param name="m_ConnectionAliasName"></param>
             <returns>连接别名；如果没起别名，则使用默认的连接字符串</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             查询，返回DataTable结果集
             </summary>
@@ -43,7 +43,7 @@
             <param name="commandType">SQL语句 | 存储过程</param>
             <returns>DataTable结果集</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             查询，返回DataTable结果集
             </summary>
@@ -53,7 +53,7 @@
             <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
             <returns>DataTable结果集</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             异步查询，返回DataTable结果集
             </summary>
@@ -63,7 +63,7 @@
             <param name="commandType">SQL语句 | 存储过程</param>
             <returns>DataTable结果集</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTableAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             查询，返回DataTable结果集
             </summary>
@@ -73,7 +73,7 @@
             <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
             <returns>DataTable结果集</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             查询，返回单一结果
             </summary>
@@ -83,7 +83,7 @@
             <param name="commandType">SQL语句 | 存储过程</param>
             <returns>单一结果</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalar(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             查询，返回单一结果
             </summary>
@@ -93,7 +93,7 @@
             <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
             <returns>单一结果</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             异步查询，返回单一结果
             </summary>
@@ -103,7 +103,7 @@
             <param name="commandType">SQL语句 | 存储过程</param>
             <returns>单一结果</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteScalarAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             异步查询，返回单一结果
             </summary>
@@ -113,7 +113,7 @@
             <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
             <returns>单一结果</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             执行
             </summary>
@@ -123,7 +123,7 @@
             <param name="commandType">SQL语句 | 存储过程</param>
             <returns>受影响行数</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             执行
             </summary>
@@ -133,7 +133,7 @@
             <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
             <returns>受影响行数</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelper.MicroDBTransaction,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             异步执行
             </summary>
@@ -143,7 +143,7 @@
             <param name="commandType">SQL语句 | 存储过程</param>
             <returns>受影响行数</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteNonQueryAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
             <summary>
             异步执行
             </summary>
@@ -153,7 +153,7 @@
             <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
             <returns>受影响行数</returns>
         </member>
-        <member name="M:MicroDBHelper.MicroDBHelper.UseTransaction(System.Data.IsolationLevel,System.String)">
+        <member name="M:MicroDBHelpers.MicroDBHelper.UseTransaction(System.Data.IsolationLevel,System.String)">
             <summary>
             获取事务支持的对象<para />
             ( 成功执行的最后，请调用MarkSuccess()，事务结束前会自动Commit；发生错误或者不显式MarkSuccess()的情况下，均会自动Rollback所有修改 )
@@ -161,100 +161,100 @@
             <param name="IsolationLevel">隔离等级</param>
             <param name="ConnectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
         </member>
-        <member name="T:MicroDBHelper.MicroDBTransaction">
+        <member name="T:MicroDBHelpers.MicroDBTransaction">
             <summary>
             服务于"MicroDBHelper"，配套的 DB事务支持
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.IsTranEnded">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.IsTranEnded">
             <summary>
             标记事务是否结束
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.IsSuccess">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.IsSuccess">
             <summary>
             标记执行是否顺利
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.connection">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.connection">
             <summary>
             数据库连接对象
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.tran">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.tran">
             <summary>
             事务对象
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.#ctor(System.Data.IsolationLevel,System.String)">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.#ctor(System.Data.IsolationLevel,System.String)">
             <summary>
             构造函数
             </summary>
             <param name="connectionAliasName">连接别名</param>
             <param name="isolationLevel">隔离等级</param>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.Dispose">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.Dispose">
             <summary>
             释放资源
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.DisposeManagedResource">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.DisposeManagedResource">
             <summary>
             释放托管资源
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.Finalize">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.Finalize">
             <summary>
             析构
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.MakeReady">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.MakeReady">
             <summary>
             使其就绪
             </summary>
             <returns>就绪与否</returns>        
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.ConnectionAndCreateTran">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.ConnectionAndCreateTran">
             <summary>
             连接数据库并创建事务
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.EndTransaction">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.EndTransaction">
             <summary>
             结束事务
             </summary>
         </member>
-        <member name="M:MicroDBHelper.MicroDBTransaction.MarkSuccess">
+        <member name="M:MicroDBHelpers.MicroDBTransaction.MarkSuccess">
             <summary>
             标记执行成功(事务结束之前，会执行Commit；否则，会执行Rollback)
             </summary>
         </member>
-        <member name="P:MicroDBHelper.MicroDBTransaction.IsolationLevel">
+        <member name="P:MicroDBHelpers.MicroDBTransaction.IsolationLevel">
             <summary>
             隔离等级(只读)
             </summary>
         </member>
-        <member name="P:MicroDBHelper.MicroDBTransaction.ConnectionAliasName">
+        <member name="P:MicroDBHelpers.MicroDBTransaction.ConnectionAliasName">
             <summary>
             连接别名(只读)
             </summary>
         </member>
-        <member name="P:MicroDBHelper.MicroDBTransaction.IsDisposed">
+        <member name="P:MicroDBHelpers.MicroDBTransaction.IsDisposed">
             <summary>
             是否已经完成释放
             </summary>
         </member>
-        <member name="T:MicroDBHelper.MicroDBTransaction.TransactionPurpose">
+        <member name="T:MicroDBHelpers.MicroDBTransaction.TransactionPurpose">
             <summary>
             事务用途
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.TransactionPurpose.ReadOnly">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.TransactionPurpose.ReadOnly">
             <summary>
             只读
             </summary>
         </member>
-        <member name="F:MicroDBHelper.MicroDBTransaction.TransactionPurpose.ReadWrite">
+        <member name="F:MicroDBHelpers.MicroDBTransaction.TransactionPurpose.ReadWrite">
             <summary>
             读和写
             </summary>

@@ -8,7 +8,7 @@
     <ProjectGuid>{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MicroDBHelper</RootNamespace>
+    <RootNamespace>MicroDBHelpers</RootNamespace>
     <AssemblyName>MicroDBHelper</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

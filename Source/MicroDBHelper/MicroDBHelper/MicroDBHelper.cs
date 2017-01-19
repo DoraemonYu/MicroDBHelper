@@ -38,7 +38,7 @@ using System.Threading.Tasks;
 using AsyncSQLHelper = Microsoft.SqlHelper;
 using SyncSQLHelper  = Microsoft.SqlHelper;
 
-namespace MicroDBHelper
+namespace MicroDBHelpers
 {
 
 #if lang_zh
