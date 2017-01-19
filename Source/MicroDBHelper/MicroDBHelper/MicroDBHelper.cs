@@ -171,6 +171,16 @@ namespace MicroDBHelpers
         #endregion
 
 
+        //---------Control----------
+
+        #region 构造函数
+
+        //隐藏默认构造函数
+        private MicroDBHelper()
+        {}
+        #endregion
+		
+
         //------DB Operate Methods------
 
         #region 查询，返回DataTable结果集
