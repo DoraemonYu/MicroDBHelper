@@ -1,4 +1,4 @@
-﻿![icon](https://github.com/DoraemonYu/MicroDBHelper/blob/master/Icon.png?raw=true)  
+![icon](https://github.com/DoraemonYu/MicroDBHelper/blob/master/Icon.png?raw=true)  
 # MicroDBHelper
 
 A friendly interface library to use SQLHelper. 
