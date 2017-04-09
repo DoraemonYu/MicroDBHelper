@@ -1,5 +1,6 @@
-MicroDBHelper
-==========================================
+﻿![icon](https://github.com/DoraemonYu/MicroDBHelper/blob/master/Icon.png?raw=true)  
+# MicroDBHelper
+
 A friendly interface library to use SQLHelper. 
 
 * [main] **friendly interface design** for developers;
@@ -109,7 +110,7 @@ BTW, it is advise the use CONST STRING to keep and use your Alias Name more easy
 This library was written with Simplified Chinese code comments as first, so in the source code, you will see there are two language( English and Simplified Chinese ) of xml summary comments for all PUBLIC interface.
 
 For build and output expectant language version, you can just change the CONFIGURATION between "en" and "zh".
-![Caution image](snapshot_configuration.png)
+![snapshot](snapshot_configuration.png)
 
 
 
