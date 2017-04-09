@@ -112,6 +112,11 @@ For build and output expectant language version, you can just change the CONFIGU
 ![snapshot](snapshot_configuration.png)
 
 
+## Expansion packs 
+MicroDBHelper itself is just focus on how to make SqlHelper more lightweight and friendly.  
+
+In order to enjoy your development, you may need some related features (such as Entity Conversion, Paging Query , etc.), then you can get these useful [Optional Expansion Packs](https://doraemonyu.github.io/MicroDBHelper-ExpansionPack/) .
+
 
 
 ## Download compiled binary file
