@@ -33,6 +33,46 @@
             <param name="m_ConnectionAliasName"></param>
             <returns>连接别名；如果没起别名，则使用默认的连接字符串</returns>
         </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSet(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
+            <summary>
+            Query，Get result of DataSet
+            </summary>
+            <param name="commandText">SQL statement</param>
+            <param name="commandParameters">SqlParameter Collection</param>
+            <param name="transaction">transaction</param>
+            <param name="commandType">Text | StoredProcedure</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSet(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+            <summary>
+            Query，Get result of DataSet
+            </summary>
+            <param name="commandText">SQL statement</param>
+            <param name="commandParameters">SqlParameter Collection</param>
+            <param name="commandType">Text | StoredProcedure</param>
+            <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSetAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
+            <summary>
+            async Query，Get result of DataSet
+            </summary>
+            <param name="commandText">SQL statement</param>
+            <param name="commandParameters">SqlParameter Collection</param>
+            <param name="transaction">transaction</param>
+            <param name="commandType">Text | StoredProcedure</param>
+            <returns>DataSet</returns>
+        </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSetAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+            <summary>
+            async Query，Get result of DataSet
+            </summary>
+            <param name="commandText">SQL statement</param>
+            <param name="commandParameters">SqlParameter Collection</param>
+            <param name="commandType">Text | StoredProcedure</param>
+            <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
+            <returns>DataSet</returns>
+        </member>
         <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             Query，Get result of DataTable

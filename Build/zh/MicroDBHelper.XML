@@ -33,6 +33,46 @@
             <param name="m_ConnectionAliasName"></param>
             <returns>连接别名；如果没起别名，则使用默认的连接字符串</returns>
         </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSet(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
+            <summary>
+            查询，返回DataSet结果集
+            </summary>
+            <param name="commandText">SQL语句</param>
+            <param name="commandParameters">参数集合</param>
+            <param name="transaction">使用指定的事务处理</param>
+            <param name="commandType">SQL语句 | 存储过程</param>
+            <returns>DataSet结果集</returns>
+        </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSet(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+            <summary>
+            查询，返回DataSet结果集
+            </summary>
+            <param name="commandText">SQL语句</param>
+            <param name="commandParameters">参数集合</param>
+            <param name="commandType">SQL语句 | 存储过程</param>
+            <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
+            <returns>DataSet结果集</returns>
+        </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSetAsync(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
+            <summary>
+            异步查询，返回DataSet结果集
+            </summary>
+            <param name="commandText">SQL语句</param>
+            <param name="commandParameters">参数集合</param>
+            <param name="transaction">使用指定的事务处理</param>
+            <param name="commandType">SQL语句 | 存储过程</param>
+            <returns>DataSet结果集</returns>
+        </member>
+        <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataSetAsync(System.String,System.Data.SqlClient.SqlParameter[],System.String,System.Data.CommandType)">
+            <summary>
+            查询，返回DataSet结果集
+            </summary>
+            <param name="commandText">SQL语句</param>
+            <param name="commandParameters">参数集合</param>
+            <param name="commandType">SQL语句 | 存储过程</param>
+            <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
+            <returns>DataSet结果集</returns>
+        </member>
         <member name="M:MicroDBHelpers.MicroDBHelper.ExecuteDataTable(System.String,System.Data.SqlClient.SqlParameter[],MicroDBHelpers.MicroDBTransaction,System.Data.CommandType)">
             <summary>
             查询，返回DataTable结果集

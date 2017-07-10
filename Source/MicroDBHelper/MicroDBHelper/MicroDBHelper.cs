@@ -157,7 +157,7 @@ namespace MicroDBHelpers
             else
             {
 #if lang_zh
-                const string errMsg1 = "预期的链接字符串不存在。";
+                const string errMsg1 = "预期的连接字符串不存在。";
                 const string errMsg2 = "连接别名不存在:";
 #else
                 const string errMsg1 = "the target Connection String is not exist。";
@@ -182,6 +182,111 @@ namespace MicroDBHelpers
 		
 
         //------DB Operate Methods------
+        
+        #region 查询，返回DataSet结果集
+
+#if lang_zh
+        /// <summary>
+        /// 查询，返回DataSet结果集
+        /// </summary>
+        /// <param name="commandText">SQL语句</param>
+        /// <param name="commandParameters">参数集合</param>
+        /// <param name="transaction">使用指定的事务处理</param>
+        /// <param name="commandType">SQL语句 | 存储过程</param>
+        /// <returns>DataSet结果集</returns>
+#else
+        /// <summary>
+        /// Query，Get result of DataSet
+        /// </summary>
+        /// <param name="commandText">SQL statement</param>
+        /// <param name="commandParameters">SqlParameter Collection</param>
+        /// <param name="transaction">transaction</param>
+        /// <param name="commandType">Text | StoredProcedure</param>
+        /// <returns>DataSet</returns>
+#endif
+        public static DataSet ExecuteDataSet(string commandText, SqlParameter[] commandParameters, MicroDBTransaction transaction, CommandType commandType = CommandType.Text)
+        {
+            DataSet ds = SyncSQLHelper.ExecuteDataset(transaction.tran, commandType, commandText, commandParameters);
+            return ds;
+        }
+
+#if lang_zh
+        /// <summary>
+        /// 查询，返回DataSet结果集
+        /// </summary>
+        /// <param name="commandText">SQL语句</param>
+        /// <param name="commandParameters">参数集合</param>
+        /// <param name="commandType">SQL语句 | 存储过程</param>
+        /// <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
+        /// <returns>DataSet结果集</returns>
+#else
+        /// <summary>
+        /// Query，Get result of DataSet
+        /// </summary>
+        /// <param name="commandText">SQL statement</param>
+        /// <param name="commandParameters">SqlParameter Collection</param>
+        /// <param name="commandType">Text | StoredProcedure</param>
+        /// <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
+        /// <returns>DataSet</returns>
+#endif
+        public static DataSet ExecuteDataSet(string commandText, SqlParameter[] commandParameters, string connectionAliasName = ALIAS_NAME_DEFAULT, CommandType commandType = CommandType.Text)
+        {
+            DataSet ds = SyncSQLHelper.ExecuteDataset(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
+            return ds;
+        }
+
+
+#if lang_zh
+        /// <summary>
+        /// 异步查询，返回DataSet结果集
+        /// </summary>
+        /// <param name="commandText">SQL语句</param>
+        /// <param name="commandParameters">参数集合</param>
+        /// <param name="transaction">使用指定的事务处理</param>
+        /// <param name="commandType">SQL语句 | 存储过程</param>
+        /// <returns>DataSet结果集</returns>
+#else
+        /// <summary>
+        /// async Query，Get result of DataSet
+        /// </summary>
+        /// <param name="commandText">SQL statement</param>
+        /// <param name="commandParameters">SqlParameter Collection</param>
+        /// <param name="transaction">transaction</param>
+        /// <param name="commandType">Text | StoredProcedure</param>
+        /// <returns>DataSet</returns>
+#endif
+        public static async Task<DataSet> ExecuteDataSetAsync(string commandText, SqlParameter[] commandParameters, MicroDBTransaction transaction, CommandType commandType = CommandType.Text)
+        {
+            DataSet ds = await AsyncSQLHelper.ExecuteDatasetAsync(transaction.tran, commandType, commandText, commandParameters);
+            return ds;
+        }
+
+#if lang_zh
+        /// <summary>
+        /// 查询，返回DataSet结果集
+        /// </summary>
+        /// <param name="commandText">SQL语句</param>
+        /// <param name="commandParameters">参数集合</param>
+        /// <param name="commandType">SQL语句 | 存储过程</param>
+        /// <param name="connectionAliasName">连接别名；如果没起别名，则使用默认的连接字符串</param>
+        /// <returns>DataSet结果集</returns>
+#else
+        /// <summary>
+        /// async Query，Get result of DataSet
+        /// </summary>
+        /// <param name="commandText">SQL statement</param>
+        /// <param name="commandParameters">SqlParameter Collection</param>
+        /// <param name="commandType">Text | StoredProcedure</param>
+        /// <param name="connectionAliasName">the Alias Name of Connection (if not pass name,it will use the DEFAULT name instead.)</param>
+        /// <returns>DataSet</returns>
+#endif
+        public static async Task<DataSet> ExecuteDataSetAsync(string commandText, SqlParameter[] commandParameters, string connectionAliasName = ALIAS_NAME_DEFAULT, CommandType commandType = CommandType.Text)
+        {
+            DataSet ds = await AsyncSQLHelper.ExecuteDatasetAsync(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
+            return ds;
+        }
+
+        #endregion
 
         #region 查询，返回DataTable结果集
 
@@ -206,7 +311,7 @@ namespace MicroDBHelpers
 #endif
         public static DataTable ExecuteDataTable(string commandText, SqlParameter[] commandParameters, MicroDBTransaction transaction, CommandType commandType = CommandType.Text)
         {
-            DataSet ds =  SyncSQLHelper.ExecuteDataset(transaction.tran, commandType, commandText, commandParameters);
+            DataSet ds = ExecuteDataSet(commandText, commandParameters, transaction, commandType);
             
             //返回结果
             if (ds == null || ds.Tables == null || ds.Tables.Count <= 0)
@@ -235,7 +340,7 @@ namespace MicroDBHelpers
 #endif
         public static DataTable ExecuteDataTable(string commandText, SqlParameter[] commandParameters, string connectionAliasName = ALIAS_NAME_DEFAULT, CommandType commandType = CommandType.Text)
         {
-            DataSet ds = SyncSQLHelper.ExecuteDataset(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
+            DataSet ds = ExecuteDataSet(commandText, commandParameters, connectionAliasName, commandType);
             
             //返回结果
             if (ds == null || ds.Tables == null || ds.Tables.Count <= 0)
@@ -265,7 +370,7 @@ namespace MicroDBHelpers
 #endif
         public static async Task<DataTable> ExecuteDataTableAsync(string commandText, SqlParameter[] commandParameters, MicroDBTransaction transaction, CommandType commandType = CommandType.Text)
         {
-            DataSet ds = await AsyncSQLHelper.ExecuteDatasetAsync(transaction.tran, commandType, commandText, commandParameters);
+            DataSet ds = await ExecuteDataSetAsync(commandText, commandParameters, transaction, commandType);
 
             //返回结果
             if (ds == null || ds.Tables == null || ds.Tables.Count <= 0)
@@ -294,7 +399,7 @@ namespace MicroDBHelpers
 #endif
         public static async Task<DataTable> ExecuteDataTableAsync(string commandText, SqlParameter[] commandParameters, string connectionAliasName = ALIAS_NAME_DEFAULT, CommandType commandType = CommandType.Text)
         {
-            DataSet ds = await AsyncSQLHelper.ExecuteDatasetAsync(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
+            DataSet ds = await ExecuteDataSetAsync(commandText, commandParameters, connectionAliasName, commandType);
 
             //返回结果
             if (ds == null || ds.Tables == null || ds.Tables.Count <= 0)
