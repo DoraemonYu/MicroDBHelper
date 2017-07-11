@@ -36,6 +36,7 @@ Then the subsequent operations, the library will use the specified connection st
 ### Query Data
 * `MicroDBHelper.ExecuteDataTable` and `MicroDBHelper.ExecuteDataTableAsync`. The former is synchronization operation and the the latter is asynchronous operation. The result is a DataTable.
 * `MicroDBHelper.ExecuteScalar` and `MicroDBHelper.ExecuteScalarAsync` will return one Object.
+* `MicroDBHelper.ExecuteDataSet` and `MicroDBHelper.ExecuteDataSetAsync` will return one DataSet, which include one or more DataTable(s).
 
 The library offer different overloaded methods for developer to easy pass parameters.Like CommandType(text / storedProcedure), use transaction or not, and so on.
 
