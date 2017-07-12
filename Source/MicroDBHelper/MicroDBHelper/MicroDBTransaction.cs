@@ -202,6 +202,22 @@ namespace MicroDBHelpers
        
         #endregion
 
+        #region ToString()
+
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return String.Format("Transaction Object using the ConnectionAliasName:[{0}] and the IsolationLevel:[{1}] ",
+                                 ConnectionAliasName,
+                                 IsolationLevel.ToString()
+                                );
+        }
+
+        #endregion
+
 
         #region 使其就绪
         /// <summary>
