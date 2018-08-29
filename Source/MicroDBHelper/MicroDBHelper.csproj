@@ -54,6 +54,8 @@
     <Compile Include="MicroDBHelper\MicroDBTransaction.cs" />
     <Compile Include="OtherHelpers\MsSqlHepler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ConnectionRepository.cs" />
+    <Compile Include="Repository\ConnectionRepositoryItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="StrongName.snk" />

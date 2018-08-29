@@ -90,18 +90,6 @@ namespace MicroDBHelpers
 
 #if lang_zh
         /// <summary>
-        /// 连接字符串词典(别名,连接字符串)
-        /// </summary>
-#else
-        /// <summary>
-        /// Connection Dictionary( alias name , connection strings )
-        /// </summary>
-#endif
-        private static Dictionary<string,string> connectionStrings = new Dictionary<string,string>();
-
-
-#if lang_zh
-        /// <summary>
         /// 设置连接字符串
         /// </summary>
         /// <param name="m_connectionString">连接字符串</param>
@@ -126,7 +114,7 @@ namespace MicroDBHelpers
 #if lang_zh
                 const string errMsg = "连接字符串有错误。";
 #else
-                const string errMsg = "Connection String is invalid。";
+                const string errMsg = "Connection String is invalid.";
 #endif
 
                 throw new ArgumentException(errMsg, "m_connectionString", ex);
@@ -141,7 +129,32 @@ namespace MicroDBHelpers
              * 2.有标记时，如果继续使用Command的同步方法，仍然能用于同步操作。
              */
             builder.AsynchronousProcessing              = true;
-            connectionStrings[m_ConnectionAliasName]    = builder.ToString();
+            string finalConnectionString                = builder.ToString();
+
+            //检查连接是否可用,同时获取SqlServer的产品版本号
+            string version;
+            try
+            {
+                version = AsyncSQLHelper.ExecuteScalar(finalConnectionString, CommandType.Text, "SELECT SERVERPROPERTY('ProductVersion')") as String;
+            }
+            catch (Exception ex)
+            {
+#if lang_zh
+                const string errMsg = "此连接字符串无法正常工作。";
+#else
+                const string errMsg = "This Connection String was unable to work properly.";
+#endif
+                throw new ArgumentException(errMsg, "m_connectionString", ex);
+            }
+
+            //记录结果
+            var item                    = new ConnectionRepositoryItem
+            {
+                ConnectionString        = finalConnectionString,
+                ServerProductVersion    = new Version(version)
+            };
+            ConnectionRepository.SetRepositoryItem(m_ConnectionAliasName, item);
+
         }
 
         /// <summary>
@@ -151,16 +164,16 @@ namespace MicroDBHelpers
         /// <returns>连接别名；如果没起别名，则使用默认的连接字符串</returns>
         internal static string GetConnection(string m_ConnectionAliasName = ALIAS_NAME_DEFAULT)
         {
-            string result = null;
-            if (connectionStrings.TryGetValue(m_ConnectionAliasName, out result))
-                return result;
+            var targetItem = ConnectionRepository.GetRepositoryItem(m_ConnectionAliasName);
+            if (targetItem == null)
+                return targetItem.ConnectionString;
             else
             {
 #if lang_zh
                 const string errMsg1 = "预期的连接字符串不存在。";
                 const string errMsg2 = "连接别名不存在:";
 #else
-                const string errMsg1 = "the target Connection String is not exist。";
+                const string errMsg1 = "the target Connection String is not exist.";
                 const string errMsg2 = "the Specified Alias Name was not setted.";  
 #endif
 
