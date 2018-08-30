@@ -14,11 +14,6 @@
             默认的别名
             </summary>
         </member>
-        <member name="F:MicroDBHelpers.MicroDBHelper.connectionStrings">
-            <summary>
-            连接字符串词典(别名,连接字符串)
-            </summary>
-        </member>
         <member name="M:MicroDBHelpers.MicroDBHelper.SetConnection(System.String,System.String)">
             <summary>
             设置连接字符串
@@ -303,6 +298,38 @@
         <member name="M:MicroDBHelpers.MicroDBTransaction.MarkSuccess">
             <summary>
             标记执行成功(事务结束之前，会执行Commit；否则，会执行Rollback)
+            </summary>
+        </member>
+        <member name="T:MicroDBHelpers.ConnectionRepository">
+            <summary>
+            连接资源的仓库
+            </summary>
+        </member>
+        <member name="M:MicroDBHelpers.ConnectionRepository.SetRepositoryItem(System.String,MicroDBHelpers.ConnectionRepositoryItem)">
+            <summary>
+            添加资源项
+            </summary>
+            <param name="ConnectionAliasName">连接别名</param>
+            <param name="item">资源项</param>
+            <returns>成功与否</returns>
+        </member>
+        <member name="M:MicroDBHelpers.ConnectionRepository.UnsetRepositoryItem(System.String)">
+            <summary>
+            删除资源项
+            </summary>
+            <param name="ConnectionAliasName">连接别名</param>
+            <returns>成功与否</returns>
+        </member>
+        <member name="M:MicroDBHelpers.ConnectionRepository.GetRepositoryItem(System.String)">
+            <summary>
+            获取资源项
+            </summary>
+            <param name="ConnectionAliasName">连接别名</param>
+            <returns>资源项</returns>
+        </member>
+        <member name="T:MicroDBHelpers.ConnectionRepositoryItem">
+            <summary>
+            连接资源的仓库子项
             </summary>
         </member>
         <member name="T:Microsoft.SqlHelper">

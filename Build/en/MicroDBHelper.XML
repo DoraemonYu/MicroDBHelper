@@ -14,11 +14,6 @@
             Default alias Name for use
             </summary>
         </member>
-        <member name="F:MicroDBHelpers.MicroDBHelper.connectionStrings">
-            <summary>
-            Connection Dictionary( alias name , connection strings )
-            </summary>
-        </member>
         <member name="M:MicroDBHelpers.MicroDBHelper.SetConnection(System.String,System.String)">
             <summary>
             Set the connection string
@@ -303,6 +298,38 @@
         <member name="M:MicroDBHelpers.MicroDBTransaction.MarkSuccess">
             <summary>
             Mark this Transaction is Success ( before this MicroDBTransaction END,it will commit; otherwise, it wll rollback  )
+            </summary>
+        </member>
+        <member name="T:MicroDBHelpers.ConnectionRepository">
+            <summary>
+            Repository of Connection Resources
+            </summary>
+        </member>
+        <member name="M:MicroDBHelpers.ConnectionRepository.SetRepositoryItem(System.String,MicroDBHelpers.ConnectionRepositoryItem)">
+            <summary>
+            Set the target Item
+            </summary>
+            <param name="ConnectionAliasName">the Alias Name of Connection</param>
+            <param name="item">the item</param>
+            <returns>successfully or not</returns>
+        </member>
+        <member name="M:MicroDBHelpers.ConnectionRepository.UnsetRepositoryItem(System.String)">
+            <summary>
+            Unset the target Item
+            </summary>
+            <param name="ConnectionAliasName">the Alias Name of Connection</param>
+            <returns>successfully or not</returns>
+        </member>
+        <member name="M:MicroDBHelpers.ConnectionRepository.GetRepositoryItem(System.String)">
+            <summary>
+            Get the target Item
+            </summary>
+            <param name="ConnectionAliasName">the Alias Name of Connection</param>
+            <returns>Item</returns>
+        </member>
+        <member name="T:MicroDBHelpers.ConnectionRepositoryItem">
+            <summary>
+            Repository Item of Connection Resources
             </summary>
         </member>
         <member name="T:Microsoft.SqlHelper">
