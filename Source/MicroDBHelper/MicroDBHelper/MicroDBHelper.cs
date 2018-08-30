@@ -165,7 +165,7 @@ namespace MicroDBHelpers
         internal static string GetConnection(string m_ConnectionAliasName = ALIAS_NAME_DEFAULT)
         {
             var targetItem = ConnectionRepository.GetRepositoryItem(m_ConnectionAliasName);
-            if (targetItem == null)
+            if (targetItem != null)
                 return targetItem.ConnectionString;
             else
             {
