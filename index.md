@@ -117,8 +117,9 @@ BTW, it is advise the use CONST STRING to keep and use your Alias Name more easy
 ## Language
 This library was written with Simplified Chinese code comments as first, so in the source code, you will see there are two language( English and Simplified Chinese ) of xml summary comments for all PUBLIC interface.
 
-For build and output expectant language version, you can just change the CONFIGURATION between "en" and "zh".
-![snapshot](snapshot_configuration.png)
+For build and output expectant language version, you can just change the context in **Directory.Build.props** file:  
+![snapshot](language_snapshot_01.png)   
+![snapshot](language_snapshot_02.png)   
 
 
 ## Download compiled binary file
