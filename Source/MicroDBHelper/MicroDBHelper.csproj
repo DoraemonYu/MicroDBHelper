@@ -45,13 +45,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="$(DefineConstants.Contains('lang_en'))">
-    <DocumentationFile>..\..\Build\en\$(TargetFramework)\MicroDBHelper.xml</DocumentationFile>
+    <DocumentationFile>..\..\Build\en\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <OutputPath>..\..\Build\en\</OutputPath>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="$(DefineConstants.Contains('lang_zh'))">
-    <DocumentationFile>..\..\Build\zh\$(TargetFramework)\MicroDBHelper.xml</DocumentationFile>
+    <DocumentationFile>..\..\Build\zh\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <OutputPath>..\..\Build\zh\</OutputPath>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
