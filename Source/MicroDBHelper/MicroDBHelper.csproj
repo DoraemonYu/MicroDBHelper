@@ -10,7 +10,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1fc8371f-18f4-4693-b233-a8736f9cded7}</ProjectGuid>
+    <ProjectGuid>{38bed804-cde9-46e0-a493-9df6f4dd3f27}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroDBHelpers</RootNamespace>
@@ -32,11 +32,8 @@
   </PropertyGroup>
 
 
-
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
     <AssemblyOriginatorKeyFile>StrongName.snk</AssemblyOriginatorKeyFile>
     <Description>A friendly interface library to use SQLHelper.</Description>
     <Company>幻蓝工作室</Company>
