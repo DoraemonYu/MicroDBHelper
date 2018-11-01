@@ -20,7 +20,7 @@ The MsSqlHepler.cs sourcecode was taken from the **Microsoft .NET Data Access Ap
 * .NETFramework 4.0 Client Profile
 * .NETFramework 4.5 
 
-(Since 2019/11/01, this project was began to support "Cross-target multiple target frameworks in one project" features. Which will easy to edit codes and build assemblys with different frameworks, and then developers would enjoy these benefits.)
+(Since 2018/11/01, this project was began to support "Cross-target multiple target frameworks in one project" features. Which will easy to edit codes and build assemblys with different frameworks, and then developers would enjoy these benefits.)
 
 
 ## Usage
