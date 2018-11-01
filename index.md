@@ -8,11 +8,19 @@ A friendly interface library to use SQLHelper.
 
 Currently it is focus on **MsSql** databases (not support MySql at this moment).  
 
-The MsSqlHepler.cs sourcecode was taken from the **Microsoft .NET Data Access Application Block v2.0** and **improved to** support the latest .net Frameworks and asynchronous programming.
+The MsSqlHepler.cs sourcecode was taken from the **Microsoft .NET Data Access Application Block v2.0** and **improved to** support the latest .net Frameworks and asynchronous programming.   
+*Note please: Asynchronous methods of this library was only supported on .Net framework 4.5 and +.*
 
 
-## Environmental Requirement
-* .Net framework 4.5 and +
+## Generated for Framework Version:
+* .NETFramework 2.0
+* .NETFramework 3.5
+* .NETFramework 3.5 Client Profile
+* .NETFramework 4.0
+* .NETFramework 4.0 Client Profile
+* .NETFramework 4.5 
+
+(Since 2019/11/01, this project was began to support "Cross-target multiple target frameworks in one project" features. Which will easy to edit codes and build assemblys with different frameworks, and then developers would enjoy these benefits.)
 
 
 ## Usage
