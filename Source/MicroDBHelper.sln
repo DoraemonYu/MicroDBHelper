@@ -1,20 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroDBHelper", "MicroDBHelper\MicroDBHelper.csproj", "{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		en|Any CPU = en|Any CPU
-		zh|Any CPU = zh|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.en|Any CPU.ActiveCfg = en|Any CPU
-		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.en|Any CPU.Build.0 = en|Any CPU
-		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.zh|Any CPU.ActiveCfg = zh|Any CPU
-		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.zh|Any CPU.Build.0 = zh|Any CPU
+		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BED804-CDE9-46E0-A493-9DF6F4DD3F27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D237B01-273C-49CE-9B97-F18382B8FB41}
 	EndGlobalSection
 EndGlobal

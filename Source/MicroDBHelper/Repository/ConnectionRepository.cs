@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+#if ASYNC_SUPPORT
+using System.Linq;
 using System.Threading.Tasks;
+#endif
 
 namespace MicroDBHelpers
 {

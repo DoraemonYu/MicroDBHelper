@@ -24,15 +24,19 @@
 // FITNESS FOR A PARTICULAR PURPOSE.
 // ==============================================================================
 
+// Modify the codes with ASYNC_SUPPORT precompiled-symbol.
+
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Collections;
 using System.Xml;
+#if ASYNC_SUPPORT
+using System.Linq;
+using System.Threading.Tasks;
+#endif
 
 namespace Microsoft
 {
@@ -63,8 +67,10 @@ namespace Microsoft
         {
             if (command == null) throw new ArgumentNullException("command");
             if (commandParameters == null) return;
-            foreach (var p in commandParameters.Where(p => p != null))
+            foreach (var p in commandParameters)
             {
+                if (p == null) continue;
+                
                 // Check for derived output value with no value assigned
                 if ((p.Direction == ParameterDirection.InputOutput ||
                      p.Direction == ParameterDirection.Input) &&
@@ -197,6 +203,7 @@ namespace Microsoft
             }
         }
 
+#if ASYNC_SUPPORT
         private async static Task<bool> PrepareCommandAsync(SqlCommand command, SqlConnection connection, SqlTransaction transaction, CommandType commandType, string commandText, IEnumerable<SqlParameter> commandParameters)
         {
             if (command == null) throw new ArgumentNullException("command");
@@ -232,8 +239,10 @@ namespace Microsoft
             }
             return mustCloseConnection;
         }
+#endif
 
         #endregion private utility methods & constructors
+
 
         #region ExecuteNonQuery
 
@@ -489,7 +498,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteNonQuery
-
+#if ASYNC_SUPPORT
         #region ExecuteNonQueryAsync
 
         /// <summary>
@@ -742,6 +751,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteNonQueryAsync
+#endif
 
         #region ExecuteDataset
 
@@ -1014,7 +1024,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteDataset
-
+#if ASYNC_SUPPORT
         #region ExecuteDatasetAsync
 
         /// <summary>
@@ -1284,6 +1294,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteDatasetAsync
+#endif
 
         #region ExecuteReader
 
@@ -1585,7 +1596,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteReader
-
+#if ASYNC_SUPPORT
         #region ExecuteReaderAsync
 
         /// <summary>
@@ -1882,6 +1893,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteReaderAsync
+#endif
 
         #region ExecuteScalar
 
@@ -2139,7 +2151,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteScalar
-
+#if ASYNC_SUPPORT
         #region ExecuteScalarAsync
 
         /// <summary>
@@ -2394,6 +2406,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteScalarAsync
+#endif
 
         #region ExecuteXmlReader
         /// <summary>
@@ -2575,7 +2588,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteXmlReader
-
+#if ASYNC_SUPPORT
         #region ExecuteXmlReaderAsync
         /// <summary>
         /// Execute a SqlCommand (that returns a resultset and takes no parameters) against the provided SqlConnection. 
@@ -2755,6 +2768,7 @@ namespace Microsoft
         }
 
         #endregion ExecuteXmlReaderAsync
+#endif
 
         #region FillDataset
         /// <summary>
@@ -3086,7 +3100,7 @@ namespace Microsoft
                 connection.Close();
         }
         #endregion
-
+#if ASYNC_SUPPORT
         #region FillDatasetAsync
         /// <summary>
         /// Execute a SqlCommand (that returns a resultset and takes no parameters) against the database specified in 
@@ -3411,6 +3425,7 @@ namespace Microsoft
                 connection.Close();
         }
         #endregion
+#endif
 
         #region UpdateDataset
         /// <summary>
@@ -3487,6 +3502,7 @@ namespace Microsoft
             return cmd;
         }
         #endregion
+
 
         #region ExecuteNonQueryTypedParams
         /// <summary>
@@ -3577,7 +3593,7 @@ namespace Microsoft
             return ExecuteNonQuery(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
-
+#if ASYNC_SUPPORT
         #region ExecuteNonQueryTypedParamsAsync
         /// <summary>
         /// Execute a stored procedure via a SqlCommand (that returns no resultset) against the database specified in 
@@ -3667,6 +3683,7 @@ namespace Microsoft
             return ExecuteNonQueryAsync(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
+#endif
 
         #region ExecuteDatasetTypedParams
         /// <summary>
@@ -3758,7 +3775,7 @@ namespace Microsoft
         }
 
         #endregion
-
+#if ASYNC_SUPPORT
         #region ExecuteDatasetTypedParamsAsync
         /// <summary>
         /// Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
@@ -3849,6 +3866,7 @@ namespace Microsoft
         }
 
         #endregion
+#endif
 
         #region ExecuteReaderTypedParams
         /// <summary>
@@ -3940,7 +3958,7 @@ namespace Microsoft
             return ExecuteReader(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
-
+#if ASYNC_SUPPORT
         #region ExecuteReaderTypedParamsAsync
         /// <summary>
         /// Execute a stored procedure via a SqlCommand (that returns a resultset) against the database specified in 
@@ -4031,6 +4049,7 @@ namespace Microsoft
             return ExecuteReaderAsync(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
+#endif
 
         #region ExecuteScalarTypedParams
         /// <summary>
@@ -4121,7 +4140,7 @@ namespace Microsoft
             return ExecuteScalar(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
-
+#if ASYNC_SUPPORT
         #region ExecuteScalarTypedParamsAsync
         /// <summary>
         /// Execute a stored procedure via a SqlCommand (that returns a 1x1 resultset) against the database specified in 
@@ -4211,6 +4230,7 @@ namespace Microsoft
             return ExecuteScalarAsync(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
+#endif
 
         #region ExecuteXmlReaderTypedParams
         /// <summary>
@@ -4272,7 +4292,7 @@ namespace Microsoft
             return ExecuteXmlReader(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
-
+#if ASYNC_SUPPORT
         #region ExecuteXmlReaderTypedParamsAsync
         /// <summary>
         /// Execute a stored procedure via a SqlCommand (that returns a resultset) against the specified SqlConnection 
@@ -4333,7 +4353,7 @@ namespace Microsoft
             return ExecuteXmlReaderAsync(transaction, CommandType.StoredProcedure, spName);
         }
         #endregion
-
+#endif
     }
 
     /// <summary>

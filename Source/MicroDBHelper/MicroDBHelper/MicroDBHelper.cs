@@ -32,9 +32,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
+#if ASYNC_SUPPORT
+using System.Linq;
 using System.Threading.Tasks;
+#endif
 using AsyncSQLHelper = Microsoft.SqlHelper;
 using SyncSQLHelper  = Microsoft.SqlHelper;
 
@@ -58,7 +60,7 @@ namespace MicroDBHelpers
 
         //----------Consts------------
 
-        #region 常量值
+#region 常量值
 		 
 #if lang_zh
         /// <summary>
@@ -71,9 +73,9 @@ namespace MicroDBHelpers
 #endif
         public const string ALIAS_NAME_DEFAULT = "DEFAULT";
 
-	    #endregion
+#endregion
 
-        #region 错误信息
+#region 错误信息
 
 #if lang_zh
         const string ERRMSG_TRANSACTION_IS_NULL = "指定的事务为空！";
@@ -81,12 +83,12 @@ namespace MicroDBHelpers
         const string ERRMSG_TRANSACTION_IS_NULL = "The Specified Transaction is null!";
 #endif
 
-        #endregion
+#endregion
 
 
         //----------Members-----------
 
-        #region 连接字符串
+#region 连接字符串
 
 #if lang_zh
         /// <summary>
@@ -181,22 +183,22 @@ namespace MicroDBHelpers
             }
         }
 
-        #endregion
+#endregion
 
 
         //---------Control----------
 
-        #region 构造函数
+#region 构造函数
 
         //隐藏默认构造函数
         private MicroDBHelper()
         {}
-        #endregion
+#endregion
 		
 
         //------DB Operate Methods------
         
-        #region 查询，返回DataSet结果集
+#region 查询，返回DataSet结果集
 
 #if lang_zh
         /// <summary>
@@ -248,7 +250,7 @@ namespace MicroDBHelpers
             return ds;
         }
 
-
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 异步查询，返回DataSet结果集
@@ -273,7 +275,9 @@ namespace MicroDBHelpers
             DataSet ds = await AsyncSQLHelper.ExecuteDatasetAsync(transaction.tran, commandType, commandText, commandParameters);
             return ds;
         }
+#endif
 
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 查询，返回DataSet结果集
@@ -298,6 +302,7 @@ namespace MicroDBHelpers
             DataSet ds = await AsyncSQLHelper.ExecuteDatasetAsync(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
             return ds;
         }
+#endif
 
         #endregion
 
@@ -362,6 +367,7 @@ namespace MicroDBHelpers
         }
 
 
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 异步查询，返回DataTable结果集
@@ -390,7 +396,9 @@ namespace MicroDBHelpers
                 return null;
             return ds.Tables[0];
         }
+#endif
 
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 查询，返回DataTable结果集
@@ -419,6 +427,7 @@ namespace MicroDBHelpers
                 return null;
             return ds.Tables[0];
         }
+#endif
 
         #endregion
 
@@ -473,6 +482,7 @@ namespace MicroDBHelpers
         }
 
 
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 异步查询，返回单一结果
@@ -498,7 +508,9 @@ namespace MicroDBHelpers
 
             return await AsyncSQLHelper.ExecuteScalarAsync(transaction.tran, commandType, commandText, commandParameters);
         }
+#endif
 
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 异步查询，返回单一结果
@@ -522,7 +534,7 @@ namespace MicroDBHelpers
         {
             return await AsyncSQLHelper.ExecuteScalarAsync(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
         }
-
+#endif
         #endregion
 
         #region 执行，返回受影响行数
@@ -577,6 +589,7 @@ namespace MicroDBHelpers
             return SyncSQLHelper.ExecuteNonQuery(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
         }
 
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 异步执行
@@ -602,8 +615,9 @@ namespace MicroDBHelpers
 
             return await AsyncSQLHelper.ExecuteNonQueryAsync(transaction.tran, commandType, commandText, commandParameters);
         }
+#endif
 
-
+#if ASYNC_SUPPORT
 #if lang_zh
         /// <summary>
         /// 异步执行
@@ -627,7 +641,7 @@ namespace MicroDBHelpers
         {
             return await AsyncSQLHelper.ExecuteNonQueryAsync(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
         }
-
+#endif
 
         #endregion
 
@@ -672,7 +686,7 @@ namespace MicroDBHelpers
             return result;
         }
 
-        #endregion
+#endregion
 
     }
 }

@@ -1,0 +1,6 @@
+<Project>
+ <PropertyGroup>
+   <!-- Choose the target language for XML-Document:  [ lang_en ] or [ lang_zh ]    -->
+   <DefineConstants>$(DefineConstants);lang_zh;</DefineConstants>
+ </PropertyGroup>
+</Project>

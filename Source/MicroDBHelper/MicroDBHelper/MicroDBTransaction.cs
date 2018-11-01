@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+#if ASYNC_SUPPORT
 using System.Threading.Tasks;
+using System.Linq;
+#endif
 
 namespace MicroDBHelpers
 {
@@ -25,7 +27,7 @@ namespace MicroDBHelpers
 
         //---------Members----------
 
-        #region 属性记录
+#region 属性记录
 
 #if lang_zh
         /// <summary>
@@ -60,9 +62,9 @@ namespace MicroDBHelpers
         /// </summary>
         private bool IsSuccess = false;
         
-        #endregion
+#endregion
 
-        #region 数据库对象
+#region 数据库对象
 
         /// <summary>
         /// 数据库连接对象
@@ -74,12 +76,12 @@ namespace MicroDBHelpers
         /// </summary>
         internal SqlTransaction tran;
 
-        #endregion
+#endregion
 
 
         //---------Structs----------
 
-        #region 事务用途
+#region 事务用途
 
         /// <summary>
         /// 事务用途
@@ -98,12 +100,12 @@ namespace MicroDBHelpers
             ReadWrite,
         }
         
-        #endregion
+#endregion
 
 
         //---------Control----------
 
-        #region 构造函数
+#region 构造函数
 
         //隐藏默认构造函数
         private MicroDBTransaction()
@@ -128,9 +130,9 @@ namespace MicroDBHelpers
             this.ConnectionAliasName    = connectionAliasName;
         }
 
-        #endregion
+#endregion
 
-        #region IDisposable
+#region IDisposable
 
 #if lang_zh
         /// <summary>
@@ -200,9 +202,9 @@ namespace MicroDBHelpers
             Dispose(false);
         }
        
-        #endregion
+#endregion
 
-        #region ToString()
+#region ToString()
 
         /// <summary>
         /// Returns a string that represents the current object.
@@ -216,10 +218,10 @@ namespace MicroDBHelpers
                                 );
         }
 
-        #endregion
+#endregion
 
 
-        #region 使其就绪
+#region 使其就绪
         /// <summary>
         /// 使其就绪
         /// </summary>
@@ -250,9 +252,9 @@ namespace MicroDBHelpers
             this.tran       = connection.BeginTransaction(IsolationLevel);
         }
 
-        #endregion
+#endregion
 
-        #region 结束事务
+#region 结束事务
 
         /// <summary>
         /// 结束事务
@@ -272,10 +274,10 @@ namespace MicroDBHelpers
             }
         }
 
-        #endregion
+#endregion
 
 
-        #region 标记执行成功
+#region 标记执行成功
 
 #if lang_zh
         /// <summary>
@@ -291,7 +293,7 @@ namespace MicroDBHelpers
             this.IsSuccess = true;
         }
 
-        #endregion
+#endregion
     }
 
 }

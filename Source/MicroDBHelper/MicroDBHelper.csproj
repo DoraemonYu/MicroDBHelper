@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
+    <DefineConstants>$(DefineConstants);ASYNC_SUPPORT;</DefineConstants>
+    <Configurations>Release</Configurations>
+  </PropertyGroup>
+  
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,65 +15,68 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroDBHelpers</RootNamespace>
     <AssemblyName>MicroDBHelper</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworks>net20;net35;net35-client;net40;net40-client;net45;</TargetFrameworks>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'en|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <OutputPath>..\..\Build\en\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;lang_en</DefineConstants>
-    <DocumentationFile>..\..\Build\en\MicroDBHelper.XML</DocumentationFile>
-    <DebugType>none</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net40-client'">
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>client</TargetFrameworkProfile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'zh|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <OutputPath>..\..\Build\zh\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;lang_zh</DefineConstants>
-    <DocumentationFile>..\..\Build\zh\MicroDBHelper.XML</DocumentationFile>
-    <DebugType>none</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net35-client'">
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>client</TargetFrameworkProfile>
   </PropertyGroup>
+
+
+
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>StrongName.snk</AssemblyOriginatorKeyFile>
+    <Description>A friendly interface library to use SQLHelper.</Description>
+    <Company>幻蓝工作室</Company>
+    <Copyright>https://github.com/DoraemonYu/MicroDBHelper</Copyright>
+    <AssemblyVersion>4.0.6.0</AssemblyVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
+
+  <PropertyGroup Condition="$(DefineConstants.Contains('lang_en'))">
+    <DocumentationFile>..\..\Build\en\$(TargetFramework)\MicroDBHelper.xml</DocumentationFile>
+    <OutputPath>..\..\Build\en\</OutputPath>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(DefineConstants.Contains('lang_zh'))">
+    <DocumentationFile>..\..\Build\zh\$(TargetFramework)\MicroDBHelper.xml</DocumentationFile>
+    <OutputPath>..\..\Build\zh\</OutputPath>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="System" />          
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="MicroDBHelper\MicroDBHelper.cs" />
-    <Compile Include="MicroDBHelper\MicroDBTransaction.cs" />
-    <Compile Include="OtherHelpers\MsSqlHepler.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ConnectionRepository.cs" />
-    <Compile Include="Repository\ConnectionRepositoryItem.cs" />
-  </ItemGroup>
+
   <ItemGroup>
     <None Include="StrongName.snk" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="_ReadMe.txt" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>
