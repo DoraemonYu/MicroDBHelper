@@ -4,7 +4,7 @@ A friendly interface library to use SQLHelper.
 
 * [main] **friendly interface design** for developers;
 * support for **asynchronous programming** (async/await) ;
-* lightweight. it's about 60kb size of compiled dll. 
+* lightweight. it's about 25~60kb size of compiled dll. 
 
 Currently it is focus on **MsSql** databases (not support MySql at this moment).  
 
