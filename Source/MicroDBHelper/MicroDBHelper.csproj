@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <DefineConstants>TRACE;</DefineConstants>
-  </PropertyGroup>
-
   <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
     <DefineConstants>$(DefineConstants);ASYNC_SUPPORT;</DefineConstants>
     <Configurations>Release</Configurations>
