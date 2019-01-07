@@ -2,14 +2,14 @@
  * 
  *  这个封装类的主要的目标：
  *  1.希望封装重复、重要的操作步骤，降低编码疏忽而引起的DB问题；
- *  2.而非功能方面的灵活或全面，因此功能上会少于下层的Helper。
+ *  2.而非功能方面的灵活或全面，因此功能上可能会少于下层的Helper。
  *  
  * 
  *  使用说明：
- *  1.提供3个基础的DB操作接口,其中“参数1”为SQL语句，“参数2”为参数数据，“参数3”为是否使用事务(传null时，表示不使用事务，新建连接去处理)
-      MicroDBHelper.ExecuteNonQuery(sql, paramValues, tran);
-      MicroDBHelper.ExecuteDataTable(sql, paramValues, tran);
-      MicroDBHelper.ExecuteScalar(sql, paramValues, tran); 
+ *  1.提供3个基础的DB操作接口,其中“参数1”为SQL语句，“参数2”为参数数组
+      MicroDBHelper.ExecuteNonQuery(sql, paramValues);
+      MicroDBHelper.ExecuteDataTable(sql, paramValues);
+      MicroDBHelper.ExecuteScalar(sql, paramValues); 
  *    
  *  2.使用事务时，请用using包括，
       using (var tran = MicroDBHelper.UseTransaction(隔离等级)) 
@@ -20,10 +20,10 @@
  *    成功执行的最后，请调用MarkSuccess()，事务结束前会自动Commit；发生错误或者不显式MarkSuccess()的情况下，均会自动Rollback所有修改;
  *     
  *  3.隔离级别，根据实际情况进行选择。选择依据：
-      未提交读（read uncommitted）   当事务A更新某条数据时，不容许其他事务来更新该数据，但可以读取。
+      未提交读（read uncommitted）  当事务A更新某条数据时，不容许其他事务来更新该数据，但可以读取。
       提交读（read committed） 	    当事务A更新某条数据时，不容许其他事务进行任何操作包括读取，但事务A读取时，其他事务可以进行读取、更新
-      重复读（repeatable read） 	    当事务A更新数据时，不容许其他事务进行任何操作，但当事务A进行读取时，其他事务只能读取，不能更新。
-      序列化（serializable）         最严格的隔离级别，事务必须依次进行。
+      重复读（repeatable read） 	当事务A更新数据时，不容许其他事务进行任何操作，但当事务A进行读取时，其他事务只能读取，不能更新。
+      序列化（serializable）        最严格的隔离级别，事务必须依次进行。
  *    
  */
 
@@ -45,7 +45,7 @@ namespace MicroDBHelpers
 
 #if lang_zh
     /// <summary>
-    /// 微型数据库帮助类(V3，支持异步SQL + 允许多数据库连接)
+    /// 微型数据库辅助类 (V3，支持异步SQL + 允许多数据库连接)
     /// </summary>
 #else
     /// <summary>

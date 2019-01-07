@@ -6,7 +6,7 @@
     <members>
         <member name="T:MicroDBHelpers.MicroDBHelper">
             <summary>
-            微型数据库帮助类(V3，支持异步SQL + 允许多数据库连接)
+            微型数据库辅助类 (V3，支持异步SQL + 允许多数据库连接)
             </summary>
         </member>
         <member name="F:MicroDBHelpers.MicroDBHelper.ALIAS_NAME_DEFAULT">
