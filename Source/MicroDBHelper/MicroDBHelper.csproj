@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <DefineConstants>TRACE;lang_en;</DefineConstants>
+    <DefineConstants>TRACE;</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
