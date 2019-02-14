@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46' OR '$(TargetFramework)' == 'netstandard2.0'" >
     <DefineConstants>$(DefineConstants);ASYNC_SUPPORT;</DefineConstants>
     <Configurations>Release</Configurations>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'" >
+    <DefineConstants>$(DefineConstants);NET_STD;</DefineConstants>
+  </PropertyGroup>
+  
   
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
@@ -15,8 +19,8 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroDBHelpers</RootNamespace>
-    <AssemblyName>MicroDBHelper</AssemblyName>
-    <TargetFrameworks>net20;net35;net35-client;net40;net40-client;net45;</TargetFrameworks>
+    <AssemblyName>MicroDBHelper</AssemblyName> 
+    <TargetFrameworks>net20;net35;net35-client;net40;net40-client;net45;net46;netstandard2.0;</TargetFrameworks>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -61,8 +65,8 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
-  
-  <ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'!='netstandard2.0'">
     <Reference Include="System" />          
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -76,5 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Data.SqlClient">
+      <Version>4.6.0</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>

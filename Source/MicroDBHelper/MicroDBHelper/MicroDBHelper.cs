@@ -130,7 +130,11 @@ namespace MicroDBHelpers
              * 1.没有标记时，及时使用Command的Async方法，依然是同步操作；
              * 2.有标记时，如果继续使用Command的同步方法，仍然能用于同步操作。
              */
+#if NET_STD
+#else
             builder.AsynchronousProcessing              = true;
+#endif
+
             string finalConnectionString                = builder.ToString();
 
             //检查连接是否可用,同时获取SqlServer的产品版本号
@@ -304,9 +308,9 @@ namespace MicroDBHelpers
         }
 #endif
 
-        #endregion
+#endregion
 
-        #region 查询，返回DataTable结果集
+#region 查询，返回DataTable结果集
 
 #if lang_zh
         /// <summary>
@@ -429,9 +433,9 @@ namespace MicroDBHelpers
         }
 #endif
 
-        #endregion
+#endregion
 
-        #region 查询，返回单一结果
+#region 查询，返回单一结果
 
 #if lang_zh
         /// <summary>
@@ -535,9 +539,9 @@ namespace MicroDBHelpers
             return await AsyncSQLHelper.ExecuteScalarAsync(GetConnection(connectionAliasName), commandType, commandText, commandParameters);
         }
 #endif
-        #endregion
+#endregion
 
-        #region 执行，返回受影响行数
+#region 执行，返回受影响行数
 
 #if lang_zh
         /// <summary>
@@ -643,12 +647,12 @@ namespace MicroDBHelpers
         }
 #endif
 
-        #endregion
+#endregion
 
 
         //------Extend Methods----------
 
-        #region 获取事务支持的对象
+#region 获取事务支持的对象
 
 
 #if lang_zh
