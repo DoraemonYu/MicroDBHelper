@@ -43,7 +43,7 @@
     <Description>A friendly interface library to use SQLHelper.</Description>
     <Company>幻蓝工作室</Company>
     <Copyright>https://github.com/DoraemonYu/MicroDBHelper</Copyright>
-    <AssemblyVersion>4.0.7.0</AssemblyVersion>
+    <AssemblyVersion>4.1.8.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(DefineConstants.Contains('lang_en'))">
