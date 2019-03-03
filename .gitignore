@@ -4,4 +4,4 @@
 bin
 obj
 /Source/.vs
-/Build/*.deps.json
+/Build/*/*/*.deps.json
