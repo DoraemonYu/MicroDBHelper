@@ -94,10 +94,21 @@ BTW, the IsolationLevel value, You can choose according to the actual situation.
 
 There are some **selection basis**:
 
-* **read uncommitted** - When transaction A updates a piece of data, it does not allow other transactions to update the data, but it can read;
-* **read committed** - When transaction A updates a piece of data, no other transaction is allowed to do anything, including read, but when transaction A reads, other transactions can read and update;
-* **repeatable read** - When the transaction A update data, do not allow other transactions to do anything, but when the transaction A to read, other transactions can only read, can not be updated;
-* **serializable** - The most strict isolation level, the transaction must be carried out in turn;
+* **read uncommitted** 
+  - When this transaction updates a piece of data, it does not allow other transactions to update the data, but it allow other transactions to read;
+  - When this transaction reads, other transactions can read and update;
+
+* **read committed** 
+  - When this transaction updates a piece of data, no other transaction is allowed to do anything, including read; 
+  - When this transaction reads, other transactions can read and update;
+
+* **repeatable read** 
+  - When this transaction updates a piece of data, no other transaction is allowed to do anything, including read;
+  - When this transaction reads, other transactions can only read, and can not updated;
+
+* **serializable** 
+  - The most strict isolation level, the transaction must be carried out in turn;
+  - A range lock is specifically on a DataSet.
 
 
 
