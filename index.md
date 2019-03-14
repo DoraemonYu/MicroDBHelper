@@ -95,18 +95,21 @@ There are some **selection basis**:
 * **read uncommitted** 
   - When this transaction updates a piece of data, it does not allow other transactions to update the data, but it allow other transactions to read;
   - When this transaction reads, other transactions can read and update;
+  - \* No shared-locks are issued, exclusive-locks are not honored.
 
 * **read committed** 
   - When this transaction updates a piece of data, no other transaction is allowed to do anything, including read; 
   - When this transaction reads, other transactions can read and update;
+  - \* Shared-locks are held during read.
 
 * **repeatable read** 
   - When this transaction updates a piece of data, no other transaction is allowed to do anything, including read;
   - When this transaction reads, other transactions can only read, and can not updated;
+  - \* Locks are placed on all data used in the query.
 
 * **serializable** 
   - The most strict isolation level, the transaction must be carried out in turn;
-  - A range lock is specifically on a DataSet.
+  - \* A range lock is placed specifically on a DataSet.
 
 
 
