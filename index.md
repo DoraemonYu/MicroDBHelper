@@ -87,7 +87,7 @@ Additionally, the MicroDBTransaction in addition to maintaining the operation of
 Use the low level of Isolation,pass same MicroDBTransaction Object and with no need for call MarkSuccess(). 
 
 
-BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.  
+BTW, the IsolationLevel value, you can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.  
 
 You can get **authoritative explanations** about isolation level via Google, however I still hope to introduce them to you via my insights: 
 
@@ -141,7 +141,7 @@ BTW, it is advise the use CONST STRING to keep and use your Alias Name more easy
 
 
 ## Language
-This library was written with Simplified Chinese code comments as first, so in the source code, you will see there are two language( English and Simplified Chinese ) of xml summary comments for all PUBLIC interface.
+This library was written with Simplified Chinese code comments as first. Therefore in the source code, you will see there are two language( English and Simplified Chinese ) of xml summary comments for all PUBLIC interface.
 
 For build and output expectant language version, you can just change the context in **Directory.Build.props** file:  
 ![snapshot](language_snapshot_01.png)   
