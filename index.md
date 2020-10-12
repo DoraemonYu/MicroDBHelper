@@ -89,8 +89,6 @@ Use the low level of Isolation,pass same MicroDBTransaction Object and with no n
 
 BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.  
 
-A lower isolation level increases the ability of many users to access data at the same time, but increases the number of concurrency effects, such as dirty reads or lost updates, that users might encounter. Conversely, a higher isolation level reduces the types of concurrency effects that users might encounter, but requires more system resources and increases the chances that one transaction will block another. Choosing the appropriate isolation level depends on balancing the data integrity requirements of the application against the overhead of each isolation level :)  
-
 You can get **authoritative explanations** about isolation level via Google, however I still hope to provide some epresentative examples:  
 
 * **read uncommitted** 
@@ -112,9 +110,20 @@ You can get **authoritative explanations** about isolation level via Google, how
 * **serializable** 
   - The most strict isolation level, the transaction must be carried out in turn;
   - \* A range lock is placed specifically on a DataSet.
+  
 
-
-
+| **Isolation Level** | **Dirty Read** | **Non Repeatable Read** | **Phantom** |
+| :---- | :----: | :----: | :----: |
+| Read uncommitted | Yes | Yes | Yes |
+| Read committed | No | Yes | Yes |
+| Repeatable read | No | No | Yes |
+| Snapshot | No | No | No |
+  
+  
+In brief, a lower isolation level **increases the ability of many users to access data at the same time**, but **increases the number of concurrency effects**, such as dirty reads or lost updates, that users might encounter. Conversely, a higher isolation level reduces the types of concurrency effects that users might encounter, but **requires more system resources** and **increases the chances** that one transaction will block another.   
+Choosing the appropriate isolation level depends on balancing the data integrity requirements of the application against the overhead of each isolation level :)  
+  
+  
 ### Multiple Connection Support
 In a specific application scenario, if you need to use multiple different databases, you can set multiple Connection String with the Alias Name. All the interface is offer the overloaded methods to use Alias Name. For example:  
 
