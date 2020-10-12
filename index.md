@@ -89,7 +89,7 @@ Use the low level of Isolation,pass same MicroDBTransaction Object and with no n
 
 BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.  
 
-You can get **authoritative explanations** about isolation level via Google, however I still hope to provide some epresentative examples:  
+You can get **authoritative explanations** about isolation level via Google, however I still hope to introduce them to you via my insights: 
 
 * **read uncommitted** 
   - When this transaction updates a piece of data, it does not allow other transactions to update the data, but it allow other transactions to read;
