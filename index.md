@@ -87,14 +87,16 @@ Additionally, the MicroDBTransaction in addition to maintaining the operation of
 Use the low level of Isolation,pass same MicroDBTransaction Object and with no need for call MarkSuccess(). 
 
 
-BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.
+BTW, the IsolationLevel value, You can choose according to the actual situation. It is a .Netframework enum from System.Data. It's **important** to choose when you design your High-performance data access layer.  
 
+A lower isolation level increases the ability of many users to access data at the same time, but increases the number of concurrency effects, such as dirty reads or lost updates, that users might encounter. Conversely, a higher isolation level reduces the types of concurrency effects that users might encounter, but requires more system resources and increases the chances that one transaction will block another. Choosing the appropriate isolation level depends on balancing the data integrity requirements of the application against the overhead of each isolation level :)  
 
-There are some **selection basis**:
+You can get **authoritative explanations** about isolation level via Google, however I still hope to provide some epresentative examples:  
 
 * **read uncommitted** 
   - When this transaction updates a piece of data, it does not allow other transactions to update the data, but it allow other transactions to read;
   - When this transaction reads, other transactions can read and update;
+  - One transaction may see not-yet-committed changes made by other transactions (dirty reads);
   - \* No shared-locks are issued, exclusive-locks are not honored.
 
 * **read committed** 
