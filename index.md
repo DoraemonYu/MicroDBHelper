@@ -1,10 +1,12 @@
 ![icon](https://github.com/DoraemonYu/MicroDBHelper/blob/master/Icon.png?raw=true)  
 # MicroDBHelper
-A friendly interface library to use SQLHelper. 
-
-* [main] **friendly interface design** for developers;
+This is a friendly interface library to use SQLHelper.  
+  
+I know there are a lot of database libraries in the world and they are incredibly awesome, but I decided to create and maintain our own library to match our demanding needs:  
+* **really friendly interface design** for most developers;
 * support for **asynchronous programming** (async/await) ;
-* lightweight. it's about 25~60kb size of compiled dll. 
+* super lightweight. it's about 25~60kb size of compiled dll. 
+* Optional expansion packs to use extended capabilities just If needed.
 
 Currently it is focus on **MsSql** databases (not support MySql at this moment).  
 
