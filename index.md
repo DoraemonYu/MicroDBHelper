@@ -6,7 +6,7 @@ I know there are a lot of database libraries in the world and they are incredibl
 * **really friendly interface design** for most developers;
 * support for **asynchronous programming** (async/await) ;
 * super lightweight. it's about 25~60kb size of compiled dll. 
-* Optional expansion packs to use extended capabilities just If needed.
+* optional expansion packs to use extended capabilities just If needed.
 
 Currently it is focus on **MsSql** databases (not support MySql at this moment).  
 
